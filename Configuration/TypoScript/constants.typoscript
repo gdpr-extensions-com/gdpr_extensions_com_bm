@@ -1,0 +1,16 @@
+plugin.tx_gdprextensionscombm_bannermanager {
+    view {
+        # cat=plugin.tx_gdprextensionscombm_bannermanager/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:gdpr_extensions_com_bm/Resources/Private/Templates/
+        # cat=plugin.tx_gdprextensionscombm_bannermanager/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:gdpr_extensions_com_bm/Resources/Private/Partials/
+        # cat=plugin.tx_gdprextensionscombm_bannermanager/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:gdpr_extensions_com_bm/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_gdprextensionscombm_bannermanager//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}
+
+

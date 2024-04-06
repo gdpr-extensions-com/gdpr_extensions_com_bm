@@ -1,0 +1,246 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+    <f:link.action action="getBanner" id="bannerUrl"></f:link.action>
+    <f:link.action action="track" id="trackUrl"></f:link.action>
+    <div>
+        <div id="banner" class="banner-slider carousel-container">
+            <a class="prev" onclick="prevSlide()" style="display: none;">&#10094;</a>
+            <a class="next" onclick="nextSlide()" style="display: none;">&#10095;</a>
+        </div>
+    </div>
+    <script>
+        let bannerUrl = document.getElementById('bannerUrl').href;
+        let trackUrl = document.getElementById('trackUrl').href;
+
+        let bannerContainer = document.getElementById('banner');
+        let prevBtn = document.querySelector('.prev')
+        let nextBtn = document.querySelector('.next')
+
+        fetch(bannerUrl)
+            .then(response => response.text())
+            .then(text => {
+                let bannerData = text.match(/###(.*?)###/g);
+                console.log(bannerData.length)
+                bannerData.forEach((data) => {
+                    let [
+                        id, html, css, js
+                    ] = data.substring(3, data.length - 3).split('|');
+
+                    html = decodeURIComponent(escape(atob(html)));
+                    css = atob(css);
+                    js = atob(js);
+
+                    let bannerDiv = document.createElement('div');
+                    bannerDiv.id = 'banner' + id;
+                    bannerData.length > 1 ? bannerDiv.classList.add('mySlides', 'animate') : '';
+                    bannerDiv.innerHTML = html;
+                    bannerContainer.appendChild(bannerDiv);
+
+                    let style = document.createElement('style');
+                    style.type = 'text/css';
+                    style.appendChild(document.createTextNode(css));
+                    document.head.appendChild(style);
+
+                    let script = document.createElement('script');
+                    script.type = 'text/javascript';
+                    script.appendChild(document.createTextNode(js));
+                    document.body.appendChild(script);
+
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const trackData = {
+                                    id: id,
+                                    type: "impressions"
+                                };
+
+                                fetch(trackUrl, {
+                                    method: "POST",
+                                    body: JSON.stringify(trackData)
+                                }).then();
+                                observer.disconnect()
+                            }
+                        });
+                    }, { threshold: 0.5 });
+
+                    observer.observe(bannerDiv);
+
+                });
+                if(bannerData.length > 1) {
+                    showSlides();
+                    prevBtn.style.display = 'block';
+                    nextBtn.style.display = 'block';
+                }
+            });
+
+            let slideIndex = 0;
+            let timer = 5;
+            const _timer = timer;
+            let touchStartX = null;
+            let dragElement = null; // Variable to store the dragged element
+            let startX = null; // Variable to store the initial position of the mouse pointer
+            let slideInterval = null;
+
+            function nextSlide() {
+                slideIndex++;
+                showSlides();
+                resetTimer();
+            }
+
+            function prevSlide() {
+                slideIndex--;
+                showSlides();
+                resetTimer();
+            }
+
+            function currentSlide(n) {
+                slideIndex = n - 1;
+                showSlides();
+                resetTimer();
+            }
+
+            function showSlides() {
+                let slides = document.querySelectorAll(".mySlides");
+
+                if (slideIndex > slides.length - 1) slideIndex = 0;
+                if (slideIndex < 0) slideIndex = slides.length - 1;
+
+                slides.forEach((slide) => {
+                    slide.classList.remove("active");
+                });
+
+                slides[slideIndex].classList.add("active");
+            }
+
+            function resetTimer() {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(() => {
+                    nextSlide();
+                }, _timer * 1000);
+            }
+
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "ArrowRight") {
+                    nextSlide();
+                } else if (event.key === "ArrowLeft") {
+                    prevSlide();
+                }
+            });
+
+            document.addEventListener("touchstart", function (event) {
+                touchStartX = event.touches[0].clientX;
+            });
+
+            document.addEventListener("touchend", function (event) {
+                const touchEndX = event.changedTouches[0].clientX;
+                const touchDiffX = touchStartX - touchEndX;
+                const swipeThreshold = 50;
+
+                if (touchDiffX > swipeThreshold) {
+                    nextSlide();
+                } else if (touchDiffX < -swipeThreshold) {
+                    prevSlide();
+                }
+            });
+
+            document.addEventListener("mousedown", function (event) {
+                startX = event.clientX;
+                dragElement = event.target;
+                // Pause the slide interval while dragging
+                clearInterval(slideInterval);
+            });
+
+            document.addEventListener("mousemove", function (event) {
+                if (dragElement) {
+                    const currentX = event.clientX;
+                    const diffX = currentX - startX;
+                    if (Math.abs(diffX) > 10) {
+                    // Prevent default drag behavior
+                    event.preventDefault();
+
+                    if (diffX > 0) {
+                        prevSlide();
+                    } else {
+                        nextSlide();
+                    }
+
+                    dragElement = null;
+                    }
+                }
+            });
+
+            document.addEventListener("mouseup", function (event) {
+                if (dragElement) {
+                    dragElement = null;
+                    resetTimer();
+                }
+            });
+
+            let slidesContainer = document.querySelector(".slides-container");
+                slideInterval = setInterval(() => {
+                nextSlide();
+            }, _timer * 1000);
+
+    </script>
+    <style>
+        #ajaxUrl {
+            display: none;
+        }
+
+        .banner-slider.carousel-container {
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 30px -20px #223344;
+            margin: auto;
+            z-index: 0;
+        }
+
+        .banner-slider .mySlides {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            height: 0;
+            visibility: hidden;
+        }
+        .banner-slider .mySlides.active {
+            opacity: 1;
+            visibility: visible;
+            height: 50dvh;
+        }
+        .banner-slider .mySlides img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .banner-slider .prev,
+        .banner-slider .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            padding: 11px 18px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.5);
+            user-select: none;
+            z-index: 99;
+            box-shadow: 0 0 5px white;
+            width: 50px;
+            height: 50px;
+        }
+        .banner-slider .next {
+            right: 14px;
+            border-radius: 50%;
+            padding: 12px 20px;
+        }
+        .banner-slider .prev {
+            left: 14px;
+        }
+    </style>
+</f:section>
+</html>

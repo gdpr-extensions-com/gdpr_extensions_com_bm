@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:gdpr_extensions_com_bm/Resources/Private/Language/locallang.xlf" date="2023-10-24T00:26:11Z" product-name="gdpr_extensions_com_bm">
+		<header/>
+		<body>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner" resname="tx_gobannerclient_domain_model_localbanner">
+				<source>Local Banner</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner.description" resname="tx_gobannerclient_domain_model_localbanner.description">
+				<source>Local Banner</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner.banner_id" resname="tx_gobannerclient_domain_model_localbanner.banner_id">
+				<source>Banner Id</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner.banner_id.description" resname="tx_gobannerclient_domain_model_localbanner.banner_id.description">
+				<source>Banner Id</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner.banner_title" resname="tx_gobannerclient_domain_model_localbanner.banner_title">
+				<source>Banner Title</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner.banner_title.description" resname="tx_gobannerclient_domain_model_localbanner.banner_title.description">
+				<source>Banner Title</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner.banner_html" resname="tx_gobannerclient_domain_model_localbanner.banner_html">
+				<source>Banner Html</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner.banner_html.description" resname="tx_gobannerclient_domain_model_localbanner.banner_html.description">
+				<source>Banner Html</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner.banner_css" resname="tx_gobannerclient_domain_model_localbanner.banner_css">
+				<source>Banner Css</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner.banner_css.description" resname="tx_gobannerclient_domain_model_localbanner.banner_css.description">
+				<source>Banner Css</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner.banner_js" resname="tx_gobannerclient_domain_model_localbanner.banner_js">
+				<source>Banner Js</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner.banner_js.description" resname="tx_gobannerclient_domain_model_localbanner.banner_js.description">
+				<source>Banner Js</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner.valid_from" resname="tx_gobannerclient_domain_model_localbanner.valid_from">
+				<source>Valid From</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner.valid_from.description" resname="tx_gobannerclient_domain_model_localbanner.valid_from.description">
+				<source>Valid From</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner.valid_to" resname="tx_gobannerclient_domain_model_localbanner.valid_to">
+				<source>Valid To</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner.valid_to.description" resname="tx_gobannerclient_domain_model_localbanner.valid_to.description">
+				<source>Valid To</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner.root_pid" resname="tx_gobannerclient_domain_model_localbanner.root_pid">
+				<source>Root Pid</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner.root_pid.description" resname="tx_gobannerclient_domain_model_localbanner.root_pid.description">
+				<source>Root Pid</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner.campaign_id" resname="tx_gobannerclient_domain_model_localbanner.campaign_id">
+				<source>Campaign Id</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_localbanner.campaign_id.description" resname="tx_gobannerclient_domain_model_localbanner.campaign_id.description">
+				<source>Campaign Id</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_bannerstat" resname="tx_gobannerclient_domain_model_bannerstat">
+				<source>Banner Stat</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_bannerstat.description" resname="tx_gobannerclient_domain_model_bannerstat.description">
+				<source>Banner Stat</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_bannerstat.impressions" resname="tx_gobannerclient_domain_model_bannerstat.impressions">
+				<source>Impressions</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_bannerstat.impressions.description" resname="tx_gobannerclient_domain_model_bannerstat.impressions.description">
+				<source>Impressions</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_bannerstat.timestamp" resname="tx_gobannerclient_domain_model_bannerstat.timestamp">
+				<source>Timestamp</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_bannerstat.timestamp.description" resname="tx_gobannerclient_domain_model_bannerstat.timestamp.description">
+				<source>Timestamp</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_bannerstat.local_banner" resname="tx_gobannerclient_domain_model_bannerstat.local_banner">
+				<source>Local Banner</source>
+			</trans-unit>
+			<trans-unit id="tx_gobannerclient_domain_model_bannerstat.local_banner.description" resname="tx_gobannerclient_domain_model_bannerstat.local_banner.description">
+				<source>Local Banner</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

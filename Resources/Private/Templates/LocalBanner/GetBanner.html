@@ -1,0 +1,18 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:section name="content">
+    <f:if condition="{slider} == 1">
+        <f:then>
+
+            <f:for each="{banner}" as="item" iteration="iterator">
+                ###{item.uid}|{item.banner_html}|{item.banner_css}|{item.banner_js}###
+            </f:for>
+        </f:then>
+        <f:else>
+            ###{banner.uid}|{banner.banner_html}|{banner.banner_css}|{banner.banner_js}###
+        </f:else>
+    </f:if>
+
+</f:section>
+
+<f:layout name="Default" />
+</html>

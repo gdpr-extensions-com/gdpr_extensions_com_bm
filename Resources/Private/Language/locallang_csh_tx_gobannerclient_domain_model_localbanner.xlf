@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:gdpr_extensions_com_bm/Resources/Private/Language/locallang_csh_tx_gobannerclient_domain_model_localbanner.xlf" date="2023-10-24T00:26:11Z" product-name="gdpr_extensions_com_bm">
+		<header/>
+		<body>
+			<trans-unit id="banner_id.description" resname="banner_id.description">
+				<source>bannerId</source>
+			</trans-unit>
+			<trans-unit id="banner_title.description" resname="banner_title.description">
+				<source>bannerTitle</source>
+			</trans-unit>
+			<trans-unit id="banner_html.description" resname="banner_html.description">
+				<source>bannerHtml</source>
+			</trans-unit>
+			<trans-unit id="banner_css.description" resname="banner_css.description">
+				<source>bannerCss</source>
+			</trans-unit>
+			<trans-unit id="banner_js.description" resname="banner_js.description">
+				<source>bannerJs</source>
+			</trans-unit>
+			<trans-unit id="valid_from.description" resname="valid_from.description">
+				<source>validFrom</source>
+			</trans-unit>
+			<trans-unit id="valid_to.description" resname="valid_to.description">
+				<source>validTo</source>
+			</trans-unit>
+			<trans-unit id="root_pid.description" resname="root_pid.description">
+				<source>rootPid</source>
+			</trans-unit>
+			<trans-unit id="campaign_id.description" resname="campaign_id.description">
+				<source>campaignId</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
