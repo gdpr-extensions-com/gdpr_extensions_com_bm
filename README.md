@@ -1,46 +1,54 @@
-## GDPR Banner Manager
+# GDPR Banner Manager
 
-GDPR Banner Manager empowers you to add content elements for shuffling or sliding banners, supporting both single-site and multisite setups on your Typo3 project. Banner campaigns can be added to one or more websites of your choosing.
+GDPR Banner Manager empowers you to add content elements for shuffling or sliding banners. It supports single site and multisite on your TYPO3 project. Banner campaigns can be added to one or more websites of your choosing.
 
-GDPR Banner Manager is powered and supported by the GDPR Website Manager extension, which needs prior installation for the banners to show successfully. 
+GDPR Banner Manager is powered and supported by the GDPR Consent Manager extension, which must be installed prior to using the banners successfully.
 
-[GDPR Website Manager Extension Link](https://extensions.typo3.org/extension/gdpr_extensions_com_wm)
+## How it Works
 
-### How it Works?
+### TYPO3 Extensions
 
-1. **Typo3 Extensions:**
-   - Install the website manager extension on your Typo3 project: [GDPR Website Manager Extension Link](https://extensions.typo3.org/extension/gdpr_extensions_com_wm)
-   - Install the banner manager extension on your Typo3 project.
+1. **Install the Consent Manager Extension**
+    - Install the Consent Manager extension on your TYPO3 project: [Link](https://extensions.typo3.org/extension/gdpr_extensions_com_cm).
+2. **Install the Banner Manager Extension**
+    - Install the Banner Manager extension on your TYPO3 project.
 
-2. **Banners & Campaigns:**
-   - Create banners on your GDPR-extensions.com dashboard.
-   - Design your banners through an advanced code editor on the GDPR-extension.com dashboard.
-   - You will need to have an account prior login.
-   - Create the campaign to link between your banner designs and the websites you want to show the banners on.
-   - Set up your campaign date range.
+### Banners & Campaigns
 
-3. **Connect Your Website:**
-   - Add your website on the gdpr-extensions.com dashboard from the websites page.
-   - Copy the API key from the dashboard into your Typo3 project.
-   - Edit root page layout. If the GDPR Website Manager is installed, you should be able to view the “Location Manager” tab.
-   - Add a location and dashboard API.
-   - Save your layout settings.
-   - Website should be connected successfully to the dashboard.
+1. **Create Banners on GDPR-extensions.com Dashboard**
+    - Create your banner design through an advanced code editor on the GDPR-extensions.com dashboard.
+    - You will need to have an account prior to logging in.
+2. **Create the Campaign**
+    - Link your banner designs and the websites where you want to show the banners.
+    - Set up your campaign date range.
 
-4. **Add Banner Content Element:**
-   - Visit the page you would like to add the banner campaign on.
-   - Add a new content element.
-   - You should be able to search and find the content element “Sliding & Shuffling Ad Banners”.
-   - Add the content element.
-   - Add additional styling.
-   - Select if you want the banners to be sliding or shuffling.
-   - Shuffling mode allows you to view a different banner upon each page refresh.
-   - Save the content element.
+### Connect Your Website
 
-5. **Run Banner Campaign on Your Website:**
-   - View the schedulers page on your Typo3 Project.
-   - Run the two schedulers below:
-     - Update Website Status.
-     - Fetch Banner Campaign.
-   - View your dashboard and enable the banner campaign.
+1. **Add Your Website on the GDPR-extensions.com Dashboard**
+    - From the websites page, copy the API key from the dashboard into your TYPO3 project.
+2. **Visit GDPR Consent Manager Page on Your TYPO3 Project**
+    - Paste the API key into the “Connect Website” tab.
 
+### Run Banner Campaign on Your Website
+
+1. **View Schedulers Page on Your TYPO3 Project**
+    - Run the two schedulers:
+        - Update Website Status
+        - Fetch Banner Campaign
+2. **Enable the Banner Campaign**
+    - View your dashboard and enable the banner campaign.
+
+### Add Banner Content Element
+
+1. **Visit the Page You Would Like to Add the Banner Campaign On**
+    - Add a new content element.
+    - Search and find the content element “Sliding & Shuffling Ad Banners”.
+    - Add the content element.
+    - Add additional styling as needed.
+    - Select if you want the banners to be sliding or shuffling.
+    - Shuffling mode allows viewing a different banner upon each page refresh.
+    - Save the content element.
+
+## Additional Information
+
+For more information and support, visit the [GDPR-extensions.com](https://extensions.typo3.org/extension/gdpr_extensions_com_cm).

@@ -102,11 +102,23 @@ class LocalBannerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
     public function getBannerAction(): \Psr\Http\Message\ResponseInterface
     {
         $connectionPool = GeneralUtility::makeInstance(ConnectionPool::class);
-        $multilocationQB = $connectionPool->getQueryBuilderForTable('multilocations');
+        $multilocationQB = $connectionPool->getQueryBuilderForTable('tx_gdprextensionscombm_domain_model_localbanner');
 
         $rootPid = $this->findRootPid($GLOBALS['TSFE']->page['uid']);
         $AllBanners = 0;
         $locationApiList = [];
+
+        $LocationQB = $connectionPool->getQueryBuilderForTable(
+            'multilocations'
+        );
+        $multiLocationResult = $LocationQB->select('*')
+            ->from('multilocations')
+            ->where(
+                $LocationQB->expr()
+                    ->eq('pages', $LocationQB->createNamedParameter($rootPid)),
+            )
+            ->executeQuery()->fetchAssociative();
+
 
         if($this->contentObject->data && !empty($this->contentObject->data['business_locations_banner'])){
 
@@ -114,15 +126,17 @@ class LocalBannerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 
             foreach ($selectedValues as $uid) {
                 $locationResult = $multilocationQB->select('dashboard_api_key')
-                    ->from('multilocations')
-                    ->where(
-                        $multilocationQB->expr()
-                            ->eq('uid', $uid)
+                    ->from('tx_gdprextensionscombm_domain_model_localbanner')
+                    ->andWhere(
+                        $multilocationQB->expr()->eq('campaign_id', $multilocationQB->createNamedParameter($uid)),
+                        $multilocationQB->expr()->eq('dashboard_api_key', $multilocationQB->createNamedParameter($multiLocationResult['dashboard_api_key']))
                     )
                     ->executeQuery();
-                $locationApi = $locationResult->fetchColumn();
-                $locationApiList[] = $locationApi;
+                $locationApi = $locationResult->fetchOne();
+                $multilocationQB->resetQueryParts();
+                $locationApiList[$uid] = $locationApi;
             }
+
         }
 
         if($this->contentObject->data && $this->contentObject->data['enable_slider'] == 1 ){

@@ -52,7 +52,7 @@ class SyncBanners
             $sysTempQB->resetQueryParts();
 
             $constantsArray = $this->extractSecretKey($SiteConfiguration['constants']);
-            $BaseURL = $constantsArray['plugin.tx_goapiconnect_goapiconnect.settings.dashboardBaseUrl'];
+            $BaseURL = isset($constantsArray['plugin.tx_gdprextensionscomcm_gdprextensionscomcm.settings.dashboardBaseUrl']) ? $constantsArray['plugin.tx_gdprextensionscomcm_gdprextensionscomcm.settings.dashboardBaseUrl']: null ;
 
             if ($apiKey) {
                 $requestUrl = (is_null($BaseURL) ? 'https://dashboard.gdpr-extensions.com/': $BaseURL) . 'review/api/' . $location['dashboard_api_key'] . '/get-banners.json';
@@ -66,7 +66,7 @@ class SyncBanners
         $connection = $connectionPool->getConnectionForTable('tx_gdprextensionscombm_domain_model_localbanner');
         $flag = 0;
 
-        
+
         foreach ($responses as $key => $response) {
             if ($response['state'] === 'fulfilled') {
                 $banners = json_decode($response['value']->getBody()->getContents(), true, JSON_THROW_ON_ERROR);
@@ -196,6 +196,7 @@ class SyncBanners
             'valid_to' => $banner['valid_to'],
             'root_pid' => $rootPid,
             'campaign_id' => $banner['campaign_id'],
+            'campaign_title' => $banner['campaign_title'],
             'is_archived' => 0,
             'campaign_is_disabled' => 0,
             'dashboard_api_key' => $apiKey,

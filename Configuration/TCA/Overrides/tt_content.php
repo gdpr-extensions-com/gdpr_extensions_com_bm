@@ -26,11 +26,31 @@ defined('TYPO3') || die();
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
     'tt_content',
     [
+        'message' => [
+            'displayCond' => 'USER:GdprExtensionsCom\GdprExtensionsComBm\Utility\ProcessMultiCamp->getAvailableCampCount:camp',
+            'exclude' => true,
+            'config' => [
+                'type' => 'none',
+                'size' => 200,
+                'format' => 'user',
+                'format.' => [
+                    'userFunc' => 'GdprExtensionsCom\GdprExtensionsComBm\Utility\ProcessMultiCamp->getErrorMssg',
+
+                ],
+
+            ],
+        ],
+    ]
+);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
+    'tt_content',
+    [
         'business_locations_banner' => [
+            'displayCond' => 'USER:GdprExtensionsCom\GdprExtensionsComBm\Utility\ProcessMultiCamp->getAvailableCampCount',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
-                'itemsProcFunc' => 'GdprExtensionsCom\GdprExtensionsComBm\Utility\ProcessMultiLocation->getLocationsforRoodPid',
+                'itemsProcFunc' => 'GdprExtensionsCom\GdprExtensionsComBm\Utility\ProcessMultiCamp->getLocationsforRoodPid',
             ],
         ],
     ],
@@ -52,7 +72,8 @@ $GLOBALS['TCA']['tt_content']['types']['gdprextensionscombm_bannermanager'] =[
       --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
          --palette--;;general,
          enable_slider; Slider,
-         business_locations_banner; Business Location,
+         business_locations_banner; Campaigns,
+         message; Error Message,
          --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
          --palette--;;hidden,
          --palette--;;access,

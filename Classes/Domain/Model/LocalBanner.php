@@ -11,7 +11,7 @@ namespace GdprExtensionsCom\GdprExtensionsComBm\Domain\Model;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * (c) 2023 
+ * (c) 2023
  */
 
 /**
@@ -82,6 +82,14 @@ class LocalBanner extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var string
      */
     protected $campaignId = null;
+
+    /**
+     * campaignId
+     *
+     * @var string
+     */
+    protected $campaignTitle = null;
+
 
     /**
      * Returns the bannerId
@@ -270,5 +278,21 @@ class LocalBanner extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setCampaignId(string $campaignId)
     {
         $this->campaignId = $campaignId;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCampaignTitle(): ?string
+    {
+        return $this->campaignTitle;
+    }
+
+    /**
+     * @param string|null $campaignTitle
+     */
+    public function setCampaignTitle(?string $campaignTitle): void
+    {
+        $this->campaignTitle = $campaignTitle;
     }
 }

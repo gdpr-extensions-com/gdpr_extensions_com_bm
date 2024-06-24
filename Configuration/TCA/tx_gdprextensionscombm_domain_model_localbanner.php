@@ -194,6 +194,17 @@ return [
                 'default' => ''
             ],
         ],
+        'campaign_title' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:gdpr_extensions_com_bm/Resources/Private/Language/locallang_db.xlf:tx_gdprextensionscombm_domain_model_localbanner.campaign_title',
+            'description' => 'LLL:EXT:gdpr_extensions_com_bm/Resources/Private/Language/locallang_db.xlf:tx_gdprextensionscombm_domain_model_localbanner.campaign_title.description',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
+                'default' => ''
+            ],
+        ],
         'is_archived' => [
             'exclude' => true,
             'label' => 'LLL:EXT:gdpr_extensions_com_bm/Resources/Private/Language/locallang_db.xlf:tx_gdprextensionscombm_domain_model_localbanner.is_archived',

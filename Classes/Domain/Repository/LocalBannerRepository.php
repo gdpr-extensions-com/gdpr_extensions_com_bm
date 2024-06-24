@@ -35,6 +35,7 @@ class LocalBannerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
                 $queryBuilder->expr()->lte('valid_from', $queryBuilder->createNamedParameter(time(), \PDO::PARAM_INT)),
                 $queryBuilder->expr()->gte('valid_to', $queryBuilder->createNamedParameter(time(), \PDO::PARAM_INT)),
                 $queryBuilder->expr()->eq('root_pid', $queryBuilder->createNamedParameter($rootPid, \PDO::PARAM_INT)),
+                $queryBuilder->expr()->in('campaign_id', $queryBuilder->createNamedParameter(array_keys($locationApiList), Connection::PARAM_STR_ARRAY)),
                 $queryBuilder->expr()->eq('is_archived', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
                 $queryBuilder->expr()->eq('campaign_is_disabled', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
                 $queryBuilder->expr()->in('dashboard_api_key', $queryBuilder->createNamedParameter($locationApiList, Connection::PARAM_STR_ARRAY))
@@ -54,6 +55,7 @@ class LocalBannerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
                     $queryBuilder->expr()->lte('valid_from', $queryBuilder->createNamedParameter(time(), \PDO::PARAM_INT)),
                     $queryBuilder->expr()->gte('valid_to', $queryBuilder->createNamedParameter(time(), \PDO::PARAM_INT)),
                     $queryBuilder->expr()->eq('root_pid', $queryBuilder->createNamedParameter($rootPid, \PDO::PARAM_INT)),
+                    $queryBuilder->expr()->in('campaign_id', $queryBuilder->createNamedParameter(array_keys($locationApiList), Connection::PARAM_STR_ARRAY)),
                     $queryBuilder->expr()->eq('is_archived', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
                     $queryBuilder->expr()->eq('campaign_is_disabled', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
                     $queryBuilder->expr()->in('dashboard_api_key', $queryBuilder->createNamedParameter($locationApiList, Connection::PARAM_STR_ARRAY))
@@ -81,6 +83,7 @@ class LocalBannerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
                 $queryBuilder->expr()->lte('valid_from', $queryBuilder->createNamedParameter(time(), \PDO::PARAM_INT)),
                 $queryBuilder->expr()->gte('valid_to', $queryBuilder->createNamedParameter(time(), \PDO::PARAM_INT)),
                 $queryBuilder->expr()->eq('root_pid', $queryBuilder->createNamedParameter($rootPid, \PDO::PARAM_INT)),
+                $queryBuilder->expr()->in('campaign_id', $queryBuilder->createNamedParameter(array_keys($locationApiList), Connection::PARAM_STR_ARRAY)),
                 $queryBuilder->expr()->eq('is_archived', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
                 $queryBuilder->expr()->eq('campaign_is_disabled', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT)),
                 $queryBuilder->expr()->in('dashboard_api_key', $queryBuilder->createNamedParameter($locationApiList, Connection::PARAM_STR_ARRAY))

@@ -8,6 +8,7 @@ CREATE TABLE tx_gdprextensionscombm_domain_model_localbanner (
 	valid_to int(11) NOT NULL DEFAULT '0',
 	root_pid varchar(255) NOT NULL DEFAULT '',
 	campaign_id varchar(255) NOT NULL DEFAULT '',
+	campaign_title varchar(255) NOT NULL DEFAULT '',
 	is_archived int(11) NOT NULL DEFAULT '0',
 	campaign_is_disabled int(11) NOT NULL DEFAULT '0',
 	dashboard_api_key varchar(255) NOT NULL DEFAULT '',
