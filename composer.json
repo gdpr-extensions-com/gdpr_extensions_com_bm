@@ -2,6 +2,7 @@
     "name": "gdpr-extensions-com/gdpr_extensions_com_bm",
     "type": "typo3-cms-extension",
     "description": "Add content elements for shuffling or sliding banners, boost revenue with custom banners. Create and manage campaigns easily with our code editor. Track impressions, clicks, and other metrics for maximum ROI.",
+	"version": "1.0.6",
     "authors": [],
     "license": "GPL-2.0-or-later",
     "require": {

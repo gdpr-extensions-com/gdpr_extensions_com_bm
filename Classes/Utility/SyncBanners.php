@@ -81,7 +81,7 @@ class SyncBanners
                 foreach ($banners as $banner)
                 {
 
-                    if(!is_null($banner['status']) && $banner['status'] == 0){
+                    if(isset($banner['status']) && !is_null($banner['status']) && $banner['status'] == 0){
                         $queryBuilder = $connection->createQueryBuilder();
                         $queryBuilder
                             ->update('tx_gdprextensionscombm_domain_model_localbanner')

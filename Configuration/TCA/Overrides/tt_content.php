@@ -26,7 +26,7 @@ defined('TYPO3') || die();
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
     'tt_content',
     [
-        'message' => [
+        'messages' => [
             'displayCond' => 'USER:GdprExtensionsCom\GdprExtensionsComBm\Utility\ProcessMultiCamp->getAvailableCampCount:camp',
             'exclude' => true,
             'config' => [
@@ -73,7 +73,7 @@ $GLOBALS['TCA']['tt_content']['types']['gdprextensionscombm_bannermanager'] =[
          --palette--;;general,
          enable_slider; Slider,
          business_locations_banner; Campaigns,
-         message; Error Message,
+         messages; Error Message,
          --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
          --palette--;;hidden,
          --palette--;;access,
